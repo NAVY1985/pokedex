@@ -91,18 +91,21 @@ function response(data) {
     var $php = `HP: ${hp}`;
     var $pweight = `WEIGHT: ${totalWeight}`;
     var $pheight = `HEIGHT: ${totalHeight}`;
+
+
     $('#namePokemon').html($pname);
     $('#profile-pokemon').html(image);
     $('#identifier').html($pidentificador);
-    // $('#hp').html($php);
-
-
-
-
-
-    // var pokemonContainer = $("#pokemon-container");
-    // pokemonContainer.append($pidentificador, $ptype, image, $pname, $pabilities, $pspeed, $pspecialDefense,
-    //     $pspecialAttack, $pdefense, $pattack, $php, $pweight, $pheight);
+    $('#type').html($ptype);
+    $('#abilities').html($pabilities);
+    $('#speed').html($pspeed);
+    $('#special-defense').html($pspecialDefense);
+    $('#special-attack').html($pspecialAttack);
+    $('#defense').html($pdefense);
+    $('#attack').html($pattack);
+    $('#hp').html($php);
+    $('#weight').html($pweight);
+    $('#height').html($pheight);
 }
 
 function error() {
