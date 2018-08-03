@@ -12,7 +12,7 @@ $.ajax({
 
 
 function pokemon(data) {
-    for (var i = 1; i < 807; i++) {
+    for (var i = 1; i < 806; i++) {
         if (i < 10) {
             var picture = $(`<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${zeros}${i}.png">`);
             var paragraph = $('<p>').text(data.results[i - 1].name);
@@ -39,8 +39,8 @@ function mistake() {
 
 $('#search-poke').click(function(e) {
     e.preventDefault();
-    var pokemonName = $('#poke-text').val();
-    //  minName = pokemonName.toLowerCase();
+    var pokemonName = $('#poke-name').val();
+    minName = pokemonName.toLowerCase();
     getPokemon();
 
     $('#exampleModal').on('shown.bs.modal', function() {
