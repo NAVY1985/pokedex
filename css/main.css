@@ -1,3 +1,35 @@
 body {
-    background: #A83737;
+    background: #3498DB;
+}
+
+#pokemons p {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#pokemons img {
+    margin: 10px;
+}
+
+#namePokemon {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+#type {
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #E74C3C;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+#identifier {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#abilities {
+    text-transform: capitalize;
 }

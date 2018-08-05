@@ -4,15 +4,15 @@ var zeros = "00";
 var zero = "0";
 
 $.ajax({
-    url: `https://pokeapi.co/api/v2/pokemon/?limit=806`,
+    url: `https://pokeapi.co/api/v2/pokemon/?limit=102`,
     type: 'GET',
     datatype: 'json',
     crossDomain: true
-}).done(pokemon).fail(mistake);
+}).done(pokemon).fail(error);
 
 
 function pokemon(data) {
-    for (var i = 1; i < 806; i++) {
+    for (var i = 1; i < 103; i++) {
         if (i < 10) {
             var picture = $(`<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${zeros}${i}.png">`);
             var paragraph = $('<p>').text(data.results[i - 1].name);
@@ -30,9 +30,41 @@ function pokemon(data) {
     }
 }
 
-function mistake() {
+function error() {
     alert("No se pueden cargar los datos");
 }
+
+/*var template = `<div class="container-pokemon">
+                        <img class="responsive-image pok" src=_imagen_/>
+                        <p>_namePokemon_</p>
+                    </div>`;
+
+function pokemon(data) {
+    var newCard = "";
+    var namePokem = "";
+    var urlImage = "";
+
+    for (var i = 1; i < 807; i++) {
+        if (i < 10) {
+            urlImage = `"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${zeros}${i}.png"`;
+            namePokem = data.results[i - 1].name
+            newCard = template.replace("_imagen", urlImage).replace("namePokemon_", namePokem);
+            pokemonContainer.append(newCard);
+        } else if (i <= 99) {
+            urlImage = `"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${zero}${i}.png"`;
+            namePokem = data.results[i - 1].name
+            newCard = template.replace("_imagen", urlImage).replace("namePokemon_", namePokem);
+            pokemonContainer.append(newCard);
+        } else {
+            urlImage = `"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${i}.png"`;
+            namePokem = data.results[i - 1].name
+            newCard = template.replace("_imagen", urlImage).replace("namePokemon_", namePokem);
+            pokemonContainer.append(newCard);
+        }
+    }
+}
+
+*/
 
 
 
@@ -41,6 +73,7 @@ $('#search-poke').click(function(e) {
     e.preventDefault();
     var pokemonName = $('#poke-name').val();
     minName = pokemonName.toLowerCase();
+    $("#poke-name").val("");
     getPokemon();
 
     $('#exampleModal').on('shown.bs.modal', function() {
@@ -58,7 +91,7 @@ function getPokemon() {
 }
 
 function response(data) {
-    // console.log(data);
+    console.log(data);
 
     var name = data.name;
     var url = data.sprites.front_default;
@@ -82,15 +115,15 @@ function response(data) {
     var $pidentificador = `# ${identificador}`;
     var $pname = `${name}`;
     var $ptype = `${type}`;
-    var $pabilities = `ABILITIES: ${abilities}, ${abilitiesTwo}`;
-    var $pspeed = `SPEED: ${speed}`;
-    var $pspecialDefense = `SP DEF: ${specialDefense}`;
-    var $pspecialAttack = `SP ATK: ${specialAttack}`;
-    var $pdefense = `DEFENSE: ${defense}`;
-    var $pattack = `ATTACK: ${attack}`;
-    var $php = `HP: ${hp}`;
-    var $pweight = `WEIGHT: ${totalWeight}`;
-    var $pheight = `HEIGHT: ${totalHeight}`;
+    var $pabilities = `<strong>ABILITIES:</strong> ${abilities}, ${abilitiesTwo}`;
+    var $pspeed = `<strong>SPEED:</strong> ${speed}`;
+    var $pspecialDefense = `<strong>SP DEF:</strong> ${specialDefense}`;
+    var $pspecialAttack = `<strong>SP ATK:</strong> ${specialAttack}`;
+    var $pdefense = `<strong>DEFENSE:</strong> ${defense}`;
+    var $pattack = `<strong>ATTACK:</strong> ${attack}`;
+    var $php = `<strong>HP:</strong> ${hp}`;
+    var $pweight = `<strong>WEIGHT:</strong> ${totalWeight}`;
+    var $pheight = `<strong>HEIGHT:</strong> ${totalHeight}`;
 
 
     $('#namePokemon').html($pname);
