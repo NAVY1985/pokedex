@@ -34,40 +34,6 @@ function error() {
     alert("No se pueden cargar los datos");
 }
 
-/*var template = `<div class="container-pokemon">
-                        <img class="responsive-image pok" src=_imagen_/>
-                        <p>_namePokemon_</p>
-                    </div>`;
-
-function pokemon(data) {
-    var newCard = "";
-    var namePokem = "";
-    var urlImage = "";
-
-    for (var i = 1; i < 807; i++) {
-        if (i < 10) {
-            urlImage = `"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${zeros}${i}.png"`;
-            namePokem = data.results[i - 1].name
-            newCard = template.replace("_imagen", urlImage).replace("namePokemon_", namePokem);
-            pokemonContainer.append(newCard);
-        } else if (i <= 99) {
-            urlImage = `"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${zero}${i}.png"`;
-            namePokem = data.results[i - 1].name
-            newCard = template.replace("_imagen", urlImage).replace("namePokemon_", namePokem);
-            pokemonContainer.append(newCard);
-        } else {
-            urlImage = `"https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${i}.png"`;
-            namePokem = data.results[i - 1].name
-            newCard = template.replace("_imagen", urlImage).replace("namePokemon_", namePokem);
-            pokemonContainer.append(newCard);
-        }
-    }
-}
-
-*/
-
-
-
 
 $('#search-poke').click(function(e) {
     e.preventDefault();
@@ -97,6 +63,7 @@ function response(data) {
     var url = data.sprites.front_default;
     var image = `<img src="${url}"/>`;
     var type = data.types[0].type.name;
+    //  var typeTwo = data.types[1].type.name;
     var abilities = data.abilities[0].ability.name;
     var abilitiesTwo = data.abilities[1].ability.name;
     var speed = data.stats[0].base_stat;
