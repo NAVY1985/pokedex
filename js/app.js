@@ -82,17 +82,12 @@
         $('#namePokemon').html(`${data.name}`);
         $("#container-profile").append(template);
     }
-    // Tienes esta misma funcion dos veces ¿?
-    // function error() {
-    //     alert("No se pueden cargar los datos");
-    // }
+
 
     $("document").ready(() => {
+
         $.ajax({
             url: `https://pokeapi.co/api/v2/pokemon/?limit=102`,
-            // Reduce el numero de elementos llamados en la API. Te reto a que implementes una paginación para cargar los elementos a demanda de ellos
-            // Tal vez de 20 en 20 seria un buen numero 102 Elementos son muchos para la usabilidad del producto. 
-            // (y eso ayudaria a limpiar las condiciones de la funcion pokemon)
             type: 'GET',
             datatype: 'json',
             crossDomain: true
@@ -101,7 +96,6 @@
         $('#search-poke').click(function(e) {
             e.preventDefault();
             var pokemonName = $('#poke-name').val();
-            // Solo se hace uso de minName cuando queremos obtener un pokemon por busqueda entonces no tiene sentido tenerla como variable global
             var minName = pokemonName.toLowerCase();
             $("#poke-name").val("");
             getPokemon(minName);
